@@ -119,10 +119,10 @@ MSB = SSB/df1;
 MSW = SSW/df2;
 F = MSB/MSW;
 F_095 = (4.1821+4.0510)/2;
-% if abs(t_temperature)>t_095
-%     fprintf('***\nRejected...\n');
-%     fprintf('The mean temperature of the first profiles is not equal to the last one.\n')
-% else
-%     fprintf('***\nAccepted...\n');
-%     fprintf('The mean temperature of the first profiles is equal to the last one.\n') 
-% end
+if abs(F)>F_095
+    fprintf('***\nRejected...\n');
+    fprintf('The mean temperature of these three profiles are not equal to each other.\n')
+else
+    fprintf('***\nAccepted...\n');
+    fprintf('The mean temperature of these three profiles are equal to each other.\n') 
+end
