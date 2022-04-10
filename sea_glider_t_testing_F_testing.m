@@ -49,9 +49,9 @@ df1 = n1-1;
 df2 = n2-1;
 df = df1+df2;
 %t-testing%
-t_095 = 1.711;
+t_095 = 2.064;
 t_temperature = (temperature_first_mean-temperature_last_mean)/...
-    sqrt((temperature_first_mean^2)/n1+(temperature_last_mean^2)/n2);
+    sqrt((temperature_first_std^2)/n1+(temperature_last_std^2)/n2);
 if abs(t_temperature)>t_095
     fprintf('***\nRejected...\n');
     fprintf('The mean temperature of the first profiles is not equal to the last one.\n')
@@ -72,7 +72,7 @@ end
 %% t-testing and F-testing of ocean temperature
 %t-testing%
 t_salinity = (salinity_first_mean-salinity_last_mean)/...
-    sqrt((salinity_first_mean^2)/n1+(salinity_last_mean^2)/n2);
+    sqrt((salinity_first_std^2)/n1+(salinity_last_std^2)/n2);
 if abs(t_temperature)>t_095
     fprintf('***\nRejected...\n');
     fprintf('The mean salinity of the first profiles is not equal to the last one.\n')

@@ -57,7 +57,7 @@ longitude_0808_200m = unique(longitude_200m(time_formatted_200m == time_0808,:))
 
 %temperature%
 temperature_0808_200m = temperature_200m(time_formatted_200m == time_0808,:);
-temperature_0808_50m = temperature_50m(time_formatted_50m == time_0730,:);
+temperature_0808_50m = temperature_50m(time_formatted_50m == time_0808,:);
 temperature_0808_50m_mean = mean(temperature_0808_50m);
 
 %% T - profile
@@ -108,13 +108,17 @@ data_total_number = n1+n2+n3;
 df1 = group_number-1;
 df2 = data_total_number-group_number;
 
-SSB = n1*(temperature_0720_50m_mean-group_mean)^2+...
-    n2*(temperature_0730_50m_mean-group_mean)^2+...
-    n3*(temperature_0808_50m_mean-group_mean)^2;
-SST = (temperature_0720_50m_mean-group_mean)^2+...
-    (temperature_0730_50m_mean-group_mean)^2+...
-    (temperature_0808_50m_mean-group_mean)^2;
-SSW = SST-SSB;
+SSB = n1*((temperature_0720_50m_mean-group_mean)^2)+...
+    n2*((temperature_0730_50m_mean-group_mean)^2)+...
+    n3*((temperature_0808_50m_mean-group_mean)^2);
+SSW = sum((temperature_0720_50m-temperature_0720_50m_mean).^2)+...
+    sum((temperature_0730_50m-temperature_0730_50m_mean).^2)+...
+    sum((temperature_0808_50m-temperature_0808_50m_mean).^2);
+SST = SSB+SSW;
+% SST = sum((temperature_0720_50m-group_mean).^2)+...
+%     sum((temperature_0730_50m-group_mean).^2)+...
+%     sum((temperature_0808_50m-group_mean).^2);
+% SSW = SST-SSB;
 MSB = SSB/df1;
 MSW = SSW/df2;
 F = MSB/MSW;
