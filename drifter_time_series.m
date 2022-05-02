@@ -15,7 +15,6 @@ v_2101641 = drifting_buoys_2101641(:,6);
 %------------------------------------------------%
 temperature_mean_2101641 = mean(temperature_2101641);
 temperature_var_2101641 = var(temperature_2101641);
-
 %% Read sheet 'drifting-buoys-2101642' in 'drifting-buoys-data.xlsx'
 opts = detectImportOptions('drifting-buoys-data.xlsx');
 opts.Sheet = 'drifting-buoys-2101642';
@@ -47,7 +46,6 @@ fig.PaperSize = [29.7 21]; % A4 papersize (horizontal,21-by-29.7 cm,[width heigh
 fig.PaperType = '<custom>';
 fig.WindowState = 'maximized';
 fig;
-
 %-------------------------------------------%
 ax1 = axes
 ax1.Position = [0.05 0.52 0.85 0.4]
@@ -67,7 +65,6 @@ ylabel('Temperature (^{\circ}C)')
 xlabel('time (hours)')
 xlim([0 210])
 ylim([26.6 27.8])
-% axis tight
 %----------------------------------------------------%
 ax2 = axes
 ax2.Position = [0.05 0.075 0.85 0.4]
@@ -82,7 +79,6 @@ ylabel('Eastward velocity (m/s)')
 ylim([-0.8 0.8])
 yyaxis right
 L2_42 = plot(time_hours_2101642,temperature_2101642,'LineWidth',2);
-% axis tight
 ylabel('Temperature (^{\circ}C)')
 xlabel('time (hours)')
 xlim([0 210])

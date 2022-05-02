@@ -3,7 +3,7 @@ sample_depth_profile = 200;
 filename = './glider-profiles-28901.csv';
 fileID = fopen(filename);
 all_data = textscan(fileID,'%f %s %f %f %f %f %f %f %s','Delimiter',',',...
-    'HeaderLines',1,'EmptyValue',-Inf);
+    'HeaderLines',1,'EmptyValue',NaN);
 fclose(fileID);
 time = all_data{:,2};
 
